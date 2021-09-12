@@ -1,0 +1,62 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf">
+
+    <Color x:Key="OBlack" A="255" R="0" G="0" B="0"/>
+    <Color x:Key="OWhite" A="0" R="0" B="0" G="0"/>
+    <Color x:Key="O60" A="50" R="41" B="213" G="213"/>
+    <Color x:Key="O30" A="200" R="143" B="239" G="198"/>
+    <Color x:Key="O10" A="225" R="28" G="149" B="32"/>
+    <Color x:Key="OError" A="255" R="74" G="45" B="23"/>
+
+    <SolidColorBrush x:Key="BBlack" Color="{StaticResource OBlack}" Opacity="1"/>
+    <SolidColorBrush x:Key="BWhite" Color="{StaticResource OWhite}" Opacity="1"/>
+    <SolidColorBrush x:Key="B60" Color="{StaticResource O60}" Opacity="1"/>
+    <SolidColorBrush x:Key="B30" Color="{StaticResource O30}" Opacity="1"/>
+    <SolidColorBrush x:Key="B10" Color="{StaticResource O10}" Opacity="1"/>
+
+    <Style TargetType="wpf:ColumnSeries">
+        <Setter Property="Fill" Value="Navy"/>
+        <Setter Property="Opacity" Value="0.75"></Setter>
+    </Style>
+
+    <Style TargetType="wpf:LineSeries">
+        <Setter Property="Opacity" Value="0.25"></Setter>
+        <Setter Property="Fill" Value="{StaticResource B30}"/>
+        <Setter Property="PointGeometrySize" Value="0"/>
+        <Setter Property="Stroke" Value="{StaticResource BBlack}"/>
+        <Setter Property="StrokeThickness" Value="2"/>
+    </Style>
+
+    <Style TargetType="Button">
+        <Setter Property="Background" Value="{StaticResource B30}"/>
+        <Setter Property="BorderBrush" Value="LightBlue"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="ClipToBounds" Value="True"/>
+        <Setter Property="FontSize" Value="12"></Setter>
+    </Style>
+
+    <Style TargetType="TextBlock">
+        <Setter Property="Background" Value="{StaticResource BWhite}"></Setter>
+    </Style>
+
+    <Style TargetType="TextBox">
+        <Setter Property="Background" Value="{StaticResource BWhite}"></Setter>
+    </Style>
+
+    <Style TargetType="DataGridRowHeader" x:Name="RowHeaderStyle">
+        <Setter Property="Background" Value="{StaticResource BBlack}"></Setter>
+        <Setter Property="BorderBrush" Value="{StaticResource BBlack}"></Setter>
+        <Setter Property="Foreground" Value="Transparent"></Setter>
+    </Style>
+
+    <Style TargetType="DataGrid">
+        <Setter Property="Background" Value="{StaticResource BWhite}"/>
+        <Setter Property="VerticalGridLinesBrush" Value="LightBlue"></Setter>
+        <Setter Property="HorizontalGridLinesBrush" Value="LightSkyBlue"></Setter>
+        <Setter Property="BorderBrush" Value="{StaticResource BBlack}"/>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="RowHeaderStyle" Value="{StaticResource {x:Type DataGridRowHeader}}"/>
+    </Style>
+
+</ResourceDictionary>

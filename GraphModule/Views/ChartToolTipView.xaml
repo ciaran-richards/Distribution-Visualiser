@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="GraphModule.Views.ChartToolTipView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local ="clr-namespace:GraphModule.Views"
+             xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:viewModels="clr-namespace:GraphModule.ViewModels"
+             xmlns:lvc ="clr-namespace:LiveCharts;assembly=LiveCharts"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance local:ChartToolTipView}"
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="#5a5a5a" Opacity="0.85"  Padding="10 5">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding Data.Points[0].ChartPoint.X}" 
+                       Foreground="White" FontWeight="SemiBold" HorizontalAlignment="Center" />
+        </Grid>
+        <ItemsControl Grid.Row="1" ItemsSource="{Binding Data.Points}" Grid.IsSharedSizeScope="True" >
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="{x:Type wpf:DataPointViewModel}">
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Case"/>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Probability"/>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Sum Probability"/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle Grid.Column="0" Stroke="{Binding Series.Stroke}" StrokeThickness="3" Fill="{Binding Series.Fill}"
+                                   Height="15" Width="15"></Rectangle>
+                        <TextBlock Grid.Column="1" Text="{Binding Series.Title}" 
+                                   Margin="5 0 0 0" VerticalAlignment="Center" Foreground="White"/>
+                        <TextBlock Grid.Column="2" Text="{Binding ChartPoint.Y}" 
+                                   Margin="5 0 0 0" VerticalAlignment="Center" Foreground="White"/>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</UserControl>
