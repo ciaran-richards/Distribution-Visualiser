@@ -15,17 +15,23 @@ namespace ProbabilitySolver.Services.SQLService
 
         protected SQLBaseService()
         {
+            ResetConnectionString();
+        }
+
+        protected Result ResetConnectionString()
+        {
             SQLServiceSetup setup = new SQLServiceSetup();
             var getConfig = setup.GetSqlConfig();
             if (getConfig.IsFailure)
-                return;
+                return getConfig;
 
             var serverName = getConfig.Value;
             connectionString = ($"Server = {serverName};" +
-                             $"Data source = {serverName};" +
-                             "Integrated Security = True;" +
-                             $"database={FileName};" +
-                             "connection timeout = 5");
+                                $"Data source = {serverName};" +
+                                "Integrated Security = True;" +
+                                $"database={FileName};" +
+                                "connection timeout = 2");
+            return Result.Success();
         }
 
         public Result ToggleUseDatabase()

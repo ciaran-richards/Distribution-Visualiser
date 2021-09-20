@@ -1,0 +1,18 @@
+﻿<Window x:Class="DataSources.Windows.SqlNameHelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataSources.Windows"
+        mc:Ignorable="d"
+        Title="Help - Finding the server name" Height="400" Width="450">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="The SQL Server name can be found in SQL Server Management Studio. 
+                   The default server name is typically displayed on startup." TextWrapping="Wrap" Margin="10"/>
+        <Image  Name="Helpimage" Grid.Row="1"  Margin="10"/>
+    </Grid>
+</Window>

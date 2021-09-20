@@ -47,10 +47,10 @@ namespace ProbabilitySolver.Services.FileService
                 if (path == string.Empty)
                     return Result.Success(Environment.SpecialFolder.CommonDocuments.ToString());
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                ChangeDirectory(Pathing.LocalDocs);
-                return GetSavePath();
+                LocalFolderService.RestoreLocalFolder();
+                return Result.Failure<string>(e.Message);
             }
 
             return Result.Success(path);

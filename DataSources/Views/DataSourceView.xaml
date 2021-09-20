@@ -40,7 +40,10 @@
 
         <TextBlock Text="SQL Server:" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"  MaxHeight="30" TextAlignment="Left" Margin="5,0,5,0"/>
 
-        <TextBox Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"  MaxHeight="30" CaretBrush="Black" TextAlignment="Left" Margin="5,0,5,0">
+        <Button Grid.Row="3" Grid.Column="1" Content="Help" MaxHeight="30" Margin="5" 
+                MaxWidth="50" Background="LightGray" BorderBrush="Transparent" Command="{Binding HelpWindowCommand}"/>
+
+<TextBox Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"  MaxHeight="30" CaretBrush="Black" TextAlignment="Left" Margin="5,0,5,0">
             <TextBox.Text>
                 <Binding Path="SQLServerName" Mode="TwoWay"
                          UpdateSourceTrigger="PropertyChanged"/>

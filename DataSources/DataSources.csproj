@@ -70,6 +70,9 @@
     <Compile Include="Windows\DataSourceWindow.xaml.cs">
       <DependentUpon>DataSourceWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\SqlNameHelpWindow.xaml.cs">
+      <DependentUpon>SqlNameHelpWindow.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -98,6 +101,10 @@
     <Page Include="Windows\DataSourceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SqlNameHelpWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

@@ -31,12 +31,6 @@ namespace Ribbon.ViewModels
         private string _message;
         private List<Button> _ribbonItems;
         private Window _creatorWindow;
-        public string Message
-        {
-            get { return _message; }
-            set { SetProperty(ref _message, value); }
-        }
-
 
         public List<Button> RibbonItems
         {
@@ -102,13 +96,7 @@ namespace Ribbon.ViewModels
                 button.Background = Brushes.LightGray;
         }
 
-        public string SelectedItem
-        {
-            get { return _selectedItem; }
-            set { SetProperty(ref _selectedItem, value); }
-        }
-
-
+        
         private void SetSmallProperties(Window window)
         { 
             window.Width = 480;
@@ -144,7 +132,6 @@ namespace Ribbon.ViewModels
             _mainIcon = new BitmapImage(new Uri(Pathing.Icon));
             _ea = aggregator;
             _ea.GetEvent<DistributionAddedEvent>().Subscribe(row => CloseCreator());
-            Message = "New Distribution";
             RibbonItems = GetButtons();
         }
     }
