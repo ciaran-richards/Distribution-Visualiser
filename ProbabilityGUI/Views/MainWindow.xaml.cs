@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using ProbabilitySolver.Structs;
 
 namespace ProbabilityGUI.Views
 {
@@ -13,8 +14,7 @@ namespace ProbabilityGUI.Views
         public MainWindow()
         {
             InitializeComponent();
-            var directory = Environment.CurrentDirectory;
-            Icon = new BitmapImage(new Uri(directory + @"\Icon.png"));
+            Icon = new BitmapImage(new Uri(Pathing.Icon));
             //EventHandler = new EventHandler();
         }
     }
