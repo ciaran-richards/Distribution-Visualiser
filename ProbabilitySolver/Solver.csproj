@@ -102,6 +102,7 @@
     <Compile Include="Services\FileService\ErrorFunctionService.cs" />
     <Compile Include="Services\FileService\IFileService.cs" />
     <Compile Include="Services\FileService\CsvService.cs" />
+    <Compile Include="Services\FileService\LocalFolderService.cs" />
     <Compile Include="Services\InputService\IInputService.cs" />
     <Compile Include="Services\InputService\InputServiceDouble.cs" />
     <Compile Include="Services\InputService\InputServiceProbability.cs" />

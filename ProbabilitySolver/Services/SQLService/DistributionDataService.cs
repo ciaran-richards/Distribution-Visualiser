@@ -10,7 +10,6 @@ using System.Linq.Expressions;
 namespace ProbabilitySolver.Services.SQLService
 {
     public class DistributionDataSerivice : SQLBaseService, IDistributionQuery
-    // Implement csv Methods here
     {
         private string FileName = @"Proba";
 
@@ -62,6 +61,7 @@ namespace ProbabilitySolver.Services.SQLService
 
         public Result<List<DistributionRow>> GetAllDistributions()
         {
+            ResetConnectionString();
             using (var connection = new SqlConnection(connectionString))
             {
                 try

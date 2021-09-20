@@ -10,11 +10,13 @@ namespace ProbabilitySolver.Structs
 {
     public static class Pathing
     {
+        //
+        public static string AppName = "Probability Charts";
         //AppData
-        public static string LocalPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + @"\ProbabilityApp";
-        public static string CsvConfig = LocalPath + @"\CsvLocation.txt";
-        public static string SqlConfig = LocalPath + @"\SqlServer.txt";
-        public static string UseDB = LocalPath + @"\UseDatabase.txt";
+        public static string CommonAppData = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\" + AppName;
+        public static string CsvConfig = CommonAppData + @"\CsvLocation.txt";
+        public static string SqlConfig = CommonAppData + @"\SqlServer.txt";
+        public static string UseDB = CommonAppData + @"\UseDatabase.txt";
         //Common Docs
         public static string LocalDocs = Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments);
         //Application

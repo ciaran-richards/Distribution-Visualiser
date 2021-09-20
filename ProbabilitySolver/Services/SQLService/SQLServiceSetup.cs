@@ -13,7 +13,7 @@ namespace ProbabilitySolver.Services.SQLService
     {
 
         private string dbName;
-        private string filePath = Pathing.LocalPath;
+        private string filePath = Pathing.CommonAppData;
         private string FileName = @"Proba";
         private string serverConnectionString;
         private string databaseConnectionString;
@@ -117,9 +117,9 @@ namespace ProbabilitySolver.Services.SQLService
                 if (path == string.Empty)
                     return Result.Failure<string>("No file path selected, choose one in: Set Data Menu");
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return Result.Failure<string>("No file path selected, choose one in: Set Data Menu");
+                return Result.Failure<string>(e.Message);
             }
 
             return Result.Success(path);

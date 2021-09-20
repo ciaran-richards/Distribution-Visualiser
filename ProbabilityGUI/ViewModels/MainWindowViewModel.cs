@@ -6,6 +6,7 @@ using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
 using ProbabilityGUI.APIs;
+using ProbabilitySolver.Structs;
 using Shared.Events;
 
 namespace ProbabilityGUI.ViewModels
@@ -13,7 +14,7 @@ namespace ProbabilityGUI.ViewModels
     public class MainWindowViewModel : BindableBase
     {
         private IEventAggregator _ea;
-        private string _title = "Probability Charts";
+        private string _title = Pathing.AppName;
 
         public DelegateCommand ShutDown { get; private set; }
         public string Title

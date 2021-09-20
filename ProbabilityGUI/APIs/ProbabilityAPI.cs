@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Data.SqlClient;
-using System.Runtime.Remoting.Messaging;
 using System.Threading.Tasks;
 using System.Windows;
 using CSharpFunctionalExtensions;
@@ -22,6 +20,7 @@ namespace ProbabilityGUI.APIs
         private IEventAggregator _ea;
         public ProbabilityAPI(IEventAggregator ea)
         {
+            LocalFolderService.RestoreLocalFolder();
             _ea = ea;
             ea.GetEvent<NewDistributionRequest>().Subscribe(async data =>
             {

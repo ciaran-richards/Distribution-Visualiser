@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
+using DataSources.Windows;
 using Prism.Events;
 using ProbabilitySolver.Distributions;
 using ProbabilitySolver.Services.FileService;
@@ -50,7 +51,7 @@ namespace DataSources.ViewModels
 
         public DelegateCommand TestConnectionCommand { get; private set; }
         public DelegateCommand CreateDatabaseCommand { get; private set; }
-
+        public DelegateCommand HelpWindowCommand { get; private set; }
         public DelegateCommand SaveCsvCommand { get; private set; }
 
 
@@ -68,6 +69,12 @@ namespace DataSources.ViewModels
             sqlServiceSetup.SaveSqlConfig(SQLServerName);
             _ea.GetEvent<NewDataBaseEvent>().Publish();
             MessageBox.Show(diagnostic);
+        }
+
+        private void HelpWindow()
+        {
+            var window = new SqlNameHelpWindow();
+            window.ShowDialog();
         }
 
         public void TestConnection()
@@ -108,6 +115,7 @@ namespace DataSources.ViewModels
             this._ea = ea;
             CreateDatabaseCommand = new DelegateCommand(() => CreateDatabase());
             TestConnectionCommand = new DelegateCommand((() => TestConnection()));
+            HelpWindowCommand = new DelegateCommand(HelpWindow);
             SaveCsvCommand = new DelegateCommand(SetDirectory);
 
         }
