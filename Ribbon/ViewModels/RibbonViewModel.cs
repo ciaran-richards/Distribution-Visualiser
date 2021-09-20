@@ -17,6 +17,7 @@ using DataSources.Windows;
 using Microsoft.Win32;
 using Prism.Events;
 using ProbabilitySolver.Services.SQLService;
+using ProbabilitySolver.Structs;
 using Shared.Events;
 
 namespace Ribbon.ViewModels
@@ -140,7 +141,7 @@ namespace Ribbon.ViewModels
         public RibbonViewModel(IEventAggregator aggregator)
         {
             var directory = Environment.CurrentDirectory;
-            _mainIcon = new BitmapImage(new Uri(directory + @"\Icon.png"));
+            _mainIcon = new BitmapImage(new Uri(Pathing.Icon));
             _ea = aggregator;
             _ea.GetEvent<DistributionAddedEvent>().Subscribe(row => CloseCreator());
             Message = "New Distribution";

@@ -8,6 +8,7 @@ using CSharpFunctionalExtensions;
 using Dasync.Collections;
 using CsvHelper;
 using CsvHelper.Configuration;
+using ProbabilitySolver.Structs;
 
 namespace ProbabilitySolver.Services.FileService
 {
@@ -24,22 +25,22 @@ namespace ProbabilitySolver.Services.FileService
         /// </returns>
         public async Task<Tuple<double[], double[]>> LoadCases()
         {
-            var currentFolder = Environment.CurrentDirectory;
-            var fileName = @"\ErrorFunction.csv";
-            using (StreamReader input = File.OpenText(currentFolder + fileName))
+            //var currentFolder = Environment.CurrentDirectory;
+            //var fileName = @"\ErrorFunction.csv";
+            using (StreamReader input = File.OpenText(Pathing.ErrorFunction))
             using (CsvReader reader = new CsvReader(input, CultureInfo.CurrentCulture))
             {
                 var keys = new double[256];
                 var values = new double[256];
                 
-                IAsyncEnumerable<dynamic> cases = reader.GetRecordsAsync<dynamic>();
-                
-                await cases.ForEachAsync(current =>
+                var cases = reader.GetRecords<dynamic>();
+
+                foreach (var current in cases)
                 {
                     int i = int.Parse(current.index); 
                     keys[i] = double.Parse(current.key);
                     values[i] = double.Parse(current.value);
-                });
+                };
                 return new Tuple<double[], double[]>(keys, values);
             }
 

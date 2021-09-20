@@ -133,15 +133,15 @@ namespace ProbabilitySolver.Services.FileService
                     var keys = new double[256];
                     var values = new double[256];
 
-                    IAsyncEnumerable<dynamic> cases = reader.GetRecordsAsync<dynamic>();
+                    var cases = reader.GetRecords<dynamic>();
 
-                    await cases.ForEachAsync(current =>
+                    foreach (var current in cases)
                     {
                         gridRows.Add(new GridRow(
                             double.Parse(current.cases), double.Parse(current.probability),
                             double.Parse(current.sumProbability)));
 
-                    });
+                    };
                 }
             }
             catch (Exception ex)
